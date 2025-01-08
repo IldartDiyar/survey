@@ -8,7 +8,8 @@ RUN go mod tidy
 
 COPY . .
 
-RUN go build -o main cmd/main.go
+# Set environment variables to build for Linux
+RUN GOOS=linux GOARCH=amd64 go build -o main cmd/main.go
 
 FROM alpine:latest
 
