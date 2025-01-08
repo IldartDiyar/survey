@@ -1,9 +1,9 @@
 server:
-  port: "1234"
+  port: "8089"
 
 postgresDB:
-    host: "ip"
-    port: "port"
-    username: "userName"
-    password: "password"
-    database: "databaseName"
+    host: "localhost"
+    port: "5432"
+    username: "postgres_user"
+    password: "very_hard_password!"
+    database: "survey_db"
