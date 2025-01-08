@@ -1,0 +1,9 @@
+server:
+  port: "1234"
+
+postgresDB:
+    host: "ip"
+    port: "port"
+    username: "userName"
+    password: "password"
+    database: "databaseName"
