@@ -2,7 +2,7 @@ server:
   port: "8089"
 
 postgresDB:
-    host: "::"
+    host: "172.18.0.2"
     port: "5432"
     username: "postgres_user"
     password: "very_hard_password!"
