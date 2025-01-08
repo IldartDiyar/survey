@@ -8,8 +8,8 @@ RUN go mod tidy
 
 COPY . .
 
-# Set environment variables to build for Linux
-RUN GOOS=linux GOARCH=amd64 go build -o main cmd/main.go
+# Build a static binary for Linux
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o main cmd/main.go
 
 FROM alpine:latest
 
@@ -18,6 +18,9 @@ WORKDIR /root/
 COPY --from=builder /app/main .
 
 COPY ./config ./config
+
+# Ensure binary is executable
+RUN chmod +x ./main
 
 EXPOSE 8089
 
