@@ -60,7 +60,7 @@ func main() {
 
 			var req map[string]string
 
-			if err := json.Unmarshal(bb, req); err != nil {
+			if err := json.Unmarshal(bb, &req); err != nil {
 				w.WriteHeader(http.StatusBadRequest)
 				w.Write([]byte(err.Error()))
 				return
@@ -77,5 +77,5 @@ func main() {
 
 	})
 
-	log.Fatal(http.ListenAndServe(":8089", h))
+	log.Fatal(http.ListenAndServe("0.0.0.0:8089", h))
 }
