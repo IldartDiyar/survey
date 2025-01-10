@@ -33,6 +33,15 @@ func main() {
 	h := http.NewServeMux()
 
 	h.HandleFunc("/survey", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		w.Header().Set("Access-Control-Allow-Credentials", "true")
+
+		if r.Method == http.MethodOptions {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		switch r.Method {
 		case http.MethodGet:
 			resp, err := s.SurveyService.GetAnswers()
