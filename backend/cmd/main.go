@@ -77,5 +77,5 @@ func main() {
 
 	})
 
-	log.Fatal(http.ListenAndServe("0.0.0.0:8089", h))
+	log.Fatal(http.ListenAndServe(":8089", h))
 }
